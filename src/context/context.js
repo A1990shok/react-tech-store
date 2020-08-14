@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { linkData } from "./linkData";
 import { socialData } from "./socialData";
-// import { items } from "./productData";
-import { client } from "./contentful";
+import { items } from "./productData";
 const ProductContext = React.createContext();
 //Provider
 //Consumer
@@ -32,13 +31,7 @@ class ProductProvider extends Component {
   componentDidMount() {
     //from contentful items
 
-    // this.setProducts(items);
-    client
-      .getEntries({
-        content_type: "techStoreProductExample",
-      })
-      .then((response) => this.setProducts(response.items))
-      .catch(console.error);
+    this.setProducts(items);
   }
 
   //set products
